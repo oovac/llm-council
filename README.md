@@ -18,11 +18,14 @@ This project was 99% vibe coded as a fun Saturday hack because I wanted to explo
 
 ### 1. Install Dependencies
 
-The project uses [uv](https://docs.astral.sh/uv/) for project management.
-
 **Backend:**
 ```bash
-uv sync
+# Create a virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install Python dependencies
+pip install -r requirements.txt
 ```
 
 **Frontend:**
@@ -68,7 +71,9 @@ CHAIRMAN_MODEL = "google/gemini-3-pro-preview"
 
 Terminal 1 (Backend):
 ```bash
-uv run python -m backend.main
+# Make sure your virtual environment is activated
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+python -m backend.main
 ```
 
 Terminal 2 (Frontend):
@@ -84,4 +89,4 @@ Then open http://localhost:5173 in your browser.
 - **Backend:** FastAPI (Python 3.10+), async httpx, OpenRouter API
 - **Frontend:** React + Vite, react-markdown for rendering
 - **Storage:** JSON files in `data/conversations/`
-- **Package Management:** uv for Python, npm for JavaScript
+- **Package Management:** pip for Python, npm for JavaScript
