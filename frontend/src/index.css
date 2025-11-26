@@ -15,15 +15,6 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* prevent any accidental horizontal scroll from 100vw or wide children */
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
 *, *::before, *::after {
     box-sizing: inherit;
 }
@@ -33,7 +24,7 @@ html, body, #root {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden; /* ensure no page-level horizontal scroll */
+    overflow-x: hidden;
     max-width: 100%;
 }
 
@@ -58,6 +49,9 @@ body {
 /* Global markdown styling */
 .markdown-content {
   padding: 12px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .markdown-content p {
@@ -102,6 +96,8 @@ body {
   border-radius: 4px;
   overflow-x: auto;
   margin: 0 0 12px 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .markdown-content code {
