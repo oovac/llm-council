@@ -83,8 +83,15 @@ CHAIRMAN_MODEL = "google/gemini-3-pro-preview"
 ## Running the Application
 
 **Option 1: Use the start script**
+
+Linux/macOS
 ```bash
 ./start.sh
+```
+
+Windows
+```bat
+./start.bat
 ```
 
 **Option 2: Run manually**
