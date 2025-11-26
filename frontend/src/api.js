@@ -2,7 +2,8 @@
  * API client for the LLM Council backend.
  */
 
-const API_BASE = `http://${window.location.hostname}:8001`;
+// Use VITE_API_URL if set (for production), otherwise use localhost
+const API_BASE = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:8001`;
 
 export const api = {
   /**

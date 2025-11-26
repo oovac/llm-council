@@ -111,6 +111,27 @@ npm run dev
 
 Then open http://localhost:5173 in your browser.
 
+## Развертывание
+
+### Northflank
+
+Для развертывания на платформе Northflank см. [NORTHFLANK.md](NORTHFLANK.md) для подробных инструкций.
+
+Кратко:
+1. Подключите ваш Git репозиторий к Northflank
+2. Установите переменные окружения (`OPENROUTER_API_KEY`, `BACKEND_URL`)
+3. Разверните сервисы используя `northflank.yaml` или через веб-интерфейс
+
+### Docker Compose
+
+Для локального развертывания с Docker:
+
+```bash
+docker-compose up -d
+```
+
+Backend будет доступен на `http://localhost:8001`, frontend на `http://localhost:5173`.
+
 ## Tech Stack
 
 - **Backend:** FastAPI (Python 3.10+), async httpx, OpenRouter API

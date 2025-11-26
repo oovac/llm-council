@@ -1,0 +1,53 @@
+version: "1.0"
+
+services:
+  backend:
+    name: llm-council-backend
+    type: service
+    build:
+      type: dockerfile
+      dockerfile: backend/Dockerfile
+      context: .
+    ports:
+      - port: 8001
+        protocol: http
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+    volumes:
+      - name: data
+        mountPath: /app/data
+        size: 10GB
+    resources:
+      cpu: 1000m
+      memory: 2Gi
+    healthcheck:
+      path: /
+      port: 8001
+      interval: 30
+      timeout: 10
+      retries: 3
+      startPeriod: 40
+
+  frontend:
+    name: llm-council-frontend
+    type: service
+    build:
+      type: dockerfile
+      dockerfile: frontend/Dockerfile.prod
+      context: ./frontend
+      buildArgs:
+        - VITE_API_URL=${BACKEND_URL}
+    ports:
+      - port: 80
+        protocol: http
+    dependsOn:
+      - backend
+    resources:
+      cpu: 500m
+      memory: 512Mi
+
+volumes:
+  data:
+    size: 10GB
+    storageClass: standard
+
